@@ -14,10 +14,11 @@ SERVER解决方案下的GameServer即为服务器项目，构建并运行即可�
 MMORPG即为Unity客户端项目，使用Unity6000.0.32f1打开（如果使用更高版本，OdinInspector插件可能会报错，需要自行更新插件）。
 
 ## 项目配置
-
-数据库的配置在SERVER\GameServer\Db\DbConfig.cs，默认账号密码都为root。
-
 网络的配置在SERVER\Common\Network\NetConfig.cs，如果想部署到远程服务器上，就要修改这里面的ServerIpAddress，并且再次构建Common类库。
+进程启动需要配置一个命令行参数：--cfg，指定的是一个json配置文件。
+如果是本地运行，需要修改文件：SERVER/GameServer/Properties/launchSettings.json中指定的json配置文件路径
+
+json配置文件的示例在：SERVER/GameServer/Config/config.json
 
 ## SERVER - C# 服务器项目
 

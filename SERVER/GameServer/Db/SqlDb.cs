@@ -8,39 +8,55 @@ using Serilog;
 
 namespace GameServer.Db
 {
+
     public class SqlDb
     {
-        public static IFreeSql FreeSql { get; }
+        private static DbConfig _dbConfig = new DbConfig();
+        private static IFreeSql freeSql;
 
-        static SqlDb()
+        public static IFreeSql FreeSql()
         {
-            FreeSql = new FreeSql.FreeSqlBuilder()
-                .UseConnectionString(global::FreeSql.DataType.MySql, $"Data Source={DbConfig.Host};Port={DbConfig.Port};User Id={DbConfig.User};Password={DbConfig.Password};")
-                .UseAutoSyncStructure(true)
-            .Build();
+            return freeSql;
+        }
 
-            // 检查数据库是否存在
-            var exists = FreeSql.Ado.QuerySingle<int>($"SELECT COUNT(*) FROM information_schema.schemata WHERE schema_name = '{DbConfig.DbName}'") > 0;
-            if (!exists)
-            {
-                FreeSql.Ado.ExecuteNonQuery($"CREATE DATABASE {DbConfig.DbName}");
-                Log.Information($"数据库“{DbConfig.DbName}”不存在，已自动创建");
-            }
+        public static void InitFreeSql(DbConfig dc)
+        {
+            _dbConfig = dc;
 
-            // 重新链接
-            FreeSql = new FreeSql.FreeSqlBuilder()
-                .UseConnectionString(global::FreeSql.DataType.MySql,  $"Data Source={DbConfig.Host};Port={DbConfig.Port};User Id={DbConfig.User};Password={DbConfig.Password};" +
-                                                                      $"Initial Catalog={DbConfig.DbName};Charset=utf8;SslMode=none;Max pool size=10")
+            Console.WriteLine("test");
+            Console.WriteLine(_dbConfig.Host);
+
+            freeSql = new FreeSql.FreeSqlBuilder()
+                .UseConnectionString(global::FreeSql.DataType.MySql,
+                    $"Data Source={_dbConfig.Host};Port={_dbConfig.Port};User Id={_dbConfig.User};Password={_dbConfig.Password};")
                 .UseAutoSyncStructure(true)
                 .Build();
 
-            exists = FreeSql.DbFirst.GetTablesByDatabase(DbConfig.DbName).Exists(t => t.Name == "user");
+            // 检查数据库是否存在
+            var exists =
+                freeSql.Ado.QuerySingle<int>(
+                    $"SELECT COUNT(*) FROM information_schema.schemata WHERE schema_name = '{_dbConfig.DbName}'") > 0;
+            if (!exists)
+            {
+                freeSql.Ado.ExecuteNonQuery($"CREATE DATABASE {_dbConfig.DbName}");
+                Log.Information($"数据库“{_dbConfig.DbName}”不存在，已自动创建");
+            }
+
+            // 重新链接
+            freeSql = new FreeSql.FreeSqlBuilder()
+                .UseConnectionString(global::FreeSql.DataType.MySql,
+                    $"Data Source={_dbConfig.Host};Port={_dbConfig.Port};User Id={_dbConfig.User};Password={_dbConfig.Password};" +
+                    $"Initial Catalog={_dbConfig.DbName};Charset=utf8;SslMode=none;Max pool size=10")
+                .UseAutoSyncStructure(true)
+                .Build();
+
+            exists = freeSql.DbFirst.GetTablesByDatabase(_dbConfig.DbName).Exists(t => t.Name == "user");
 
             if (!exists)
             {
                 // FreeSql.CodeFirst.SyncStructure<DbUser>();
-                FreeSql.Insert(new DbUser("root", "1234567890", Authoritys.Administrator)).ExecuteAffrows();
-                Log.Information($"数据库“{DbConfig.DbName}”中的“user”表不存在，已自动创建，并添加一个管理员账号（账号=root，密码=1234567890）");
+                freeSql.Insert(new DbUser("root", "1234567890", Authoritys.Administrator)).ExecuteAffrows();
+                Log.Information($"数据库“{_dbConfig.DbName}”中的“user”表不存在，已自动创建，并添加一个管理员账号（账号=root，密码=1234567890）");
             }
         }
     }

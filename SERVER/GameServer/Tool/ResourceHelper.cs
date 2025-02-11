@@ -8,9 +8,14 @@ namespace GameServer.Tool
     {
         public static string LoadFile(string path)
         {
-            string exePath = Assembly.GetExecutingAssembly().Location;
-            string? exeDirectory = Path.GetDirectoryName(exePath);
-            string content = File.ReadAllText(Path.Join(exeDirectory, path));
+            var allPath = path;
+            if (!Path.IsPathRooted(path))
+            {
+                string exePath = Assembly.GetExecutingAssembly().Location;
+                string? exeDirectory = Path.GetDirectoryName(exePath);
+                allPath = Path.Join(exeDirectory, path);
+            }
+            string content = File.ReadAllText(allPath);
             return content;
         }
     }

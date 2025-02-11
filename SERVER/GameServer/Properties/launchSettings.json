@@ -2,6 +2,7 @@
   "profiles": {
     "GameServer": {
       "commandName": "Project",
+      "commandLineArgs": "--cfg D:\\c#ws\\MMORPG\\SERVER\\GameServer\\Config\\config.json",
       "remoteDebugEnabled": false,
       "remoteDebugMachine": "117.72.68.24:4026",
       "authenticationMode": "None"

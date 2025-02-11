@@ -53,7 +53,7 @@ namespace GameServer.NetService
                     return;
                 }
 
-                var dbUser = SqlDb.FreeSql.Select<DbUser>()
+                var dbUser = SqlDb.FreeSql().Select<DbUser>()
                     .Where(p => p.Username == request.Username)
                     .Where(p => p.Password == request.Password)
                     .First();
@@ -91,7 +91,7 @@ namespace GameServer.NetService
                     return;
                 }
 
-                var dbUser = SqlDb.FreeSql.Select<DbUser>()
+                var dbUser = SqlDb.FreeSql().Select<DbUser>()
                     .Where(p => p.Username == request.Username)
                     .First();
                 if (dbUser != null)
@@ -102,7 +102,7 @@ namespace GameServer.NetService
                 }
 
                 var newDbUser = new DbUser(request.Username, request.Password, Authoritys.Player);
-                var insertCount = SqlDb.FreeSql.Insert<DbUser>(newDbUser).ExecuteAffrows();
+                var insertCount = SqlDb.FreeSql().Insert<DbUser>(newDbUser).ExecuteAffrows();
                 if (insertCount <= 0)
                 {
                     sender.Send(new RegisterResponse() { Error = NetError.UnknowError });

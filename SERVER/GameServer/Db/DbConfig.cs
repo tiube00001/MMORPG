@@ -11,22 +11,27 @@ namespace GameServer.Db
         /// <summary>
         /// 数据库Host
         /// </summary>
-        public static readonly string Host = "127.0.0.1";
+        public  string Host = "";
         /// <summary>
         /// 数据库端口
         /// </summary>
-        public static readonly int Port = 3306;
+        public  int Port = 0;
         /// <summary>
         /// 数据库用户名
         /// </summary>
-        public static readonly string User = "root";
+        public  string User = "";
         /// <summary>
         /// 数据库密码
         /// </summary>
-        public static readonly string Password = "root";
+        public  string Password = "";
         /// <summary>
         /// 数据库名称
         /// </summary>
-        public static readonly string DbName = "MMORPG";
+        public  string DbName = "";
+
+        public bool IsValid()
+        {
+            return !string.IsNullOrEmpty(Host) && !string.IsNullOrEmpty(User) && !string.IsNullOrEmpty(Password) && !string.IsNullOrEmpty(DbName);
+        }
     }
 }

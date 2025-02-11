@@ -13,6 +13,8 @@ namespace GameServer.Manager
 {
     public class DataManager : Singleton<DataManager>
     {
+        private string dirPath = "";
+        
         public Dictionary<int, MapDefine> MapDict;
         public Dictionary<int, UnitDefine> UnitDict;
         public Dictionary<int, SpawnDefine> SpawnDict;
@@ -25,6 +27,11 @@ namespace GameServer.Manager
         public Dictionary<int, BuffDefine> BuffDict;
 
         private DataManager() { }
+
+        public void SetDirPath(string dp)
+        {
+            dirPath = dp;
+        }
 
         public void Start()
         {
@@ -44,6 +51,7 @@ namespace GameServer.Manager
 
         private T Load<T>(string jsonPath)
         {
+            jsonPath = Path.Join(dirPath, jsonPath);
             var content = ResourceHelper.LoadFile(jsonPath);
             Debug.Assert(content != null);
             var obj = JsonConvert.DeserializeObject<T>(content);
