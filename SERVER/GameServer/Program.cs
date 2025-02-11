@@ -37,8 +37,8 @@ namespace GameServer
                 Console.WriteLine("--cfg is required");
                 return;
             }
-            
-            string content = File.ReadAllText(cfgPath);
+
+            string content = ResourceHelper.LoadFile(cfgPath);
             Debug.Assert(content != null);
             var sc = JsonConvert.DeserializeObject<StartupCfg>(content);
             Debug.Assert(sc != null);

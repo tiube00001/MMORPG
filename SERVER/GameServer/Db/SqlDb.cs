@@ -22,10 +22,6 @@ namespace GameServer.Db
         public static void InitFreeSql(DbConfig dc)
         {
             _dbConfig = dc;
-
-            Console.WriteLine("test");
-            Console.WriteLine(_dbConfig.Host);
-
             freeSql = new FreeSql.FreeSqlBuilder()
                 .UseConnectionString(global::FreeSql.DataType.MySql,
                     $"Data Source={_dbConfig.Host};Port={_dbConfig.Port};User Id={_dbConfig.User};Password={_dbConfig.Password};")
