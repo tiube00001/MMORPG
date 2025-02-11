@@ -49,6 +49,10 @@ namespace GameServer
                 return;
             }
             
+            Console.WriteLine(sc.DbConfig.Host);
+            Console.WriteLine(sc.DbConfig.Port);
+            Console.WriteLine(sc.DbConfig.User);
+            Console.WriteLine(sc.DbConfig.Password);
             SqlDb.InitFreeSql(sc.DbConfig);
             
             DataManager.Instance.SetDirPath(sc.DataPath);

@@ -1,9 +1,9 @@
 ﻿{
   "DbConfig": {
-    "Host":"10.22.200.90",
-    "Port":"3310",
+    "Host":"127.0.0.1",
+    "Port":"3306",
     "User":"root",
-    "Password":"RsRr49lxIzpwiacg",
+    "Password":"123456",
     "DbName": "MMORPG"
   },
   "DataPath": "D:\\c#ws\\MMORPG\\SERVER\\Common"

@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <RuntimeIdentifiers>linux-x64;win-x64;osx-x64</RuntimeIdentifiers>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
@@ -27,9 +28,7 @@
     <Folder Include="Data\json\" />
     <Folder Include="Inventory\" />
   </ItemGroup>
-
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="copy &quot;$(TargetPath)&quot; &quot;$(SolutionDir)/../MMORPG/Assets/Plugins/$(TargetFileName)&quot;" />
   </Target>
-
 </Project>
