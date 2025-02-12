@@ -15,26 +15,26 @@ MonoBehaviour:
   CNName: "1.DocKit.\u7F16\u8F91"
   serializedNodes: []
   nodes:
-  - id: 0
-  - id: 1
-  - id: 2
-  - id: 3
-  - id: 4
-  - id: 5
-  - id: 6
-  - id: 7
-  - id: 8
-  - id: 9
-  - id: 10
-  - id: 11
-  - id: 12
-  - id: 13
-  - id: 14
-  - id: 15
-  - id: 16
-  - id: 17
-  - id: 18
-  - id: 19
+  - rid: 0
+  - rid: 1
+  - rid: 2
+  - rid: 3
+  - rid: 4
+  - rid: 5
+  - rid: 6
+  - rid: 7
+  - rid: 8
+  - rid: 9
+  - rid: 10
+  - rid: 11
+  - rid: 12
+  - rid: 13
+  - rid: 14
+  - rid: 15
+  - rid: 16
+  - rid: 17
+  - rid: 18
+  - rid: 19
   edges: []
   groups: []
   stackNodes: []
@@ -43,12 +43,13 @@ MonoBehaviour:
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: -34, y: -179, z: 0}
-  scale: {x: 0.7561437, y: 0.7561437, z: 1}
+  position: {x: 114, y: -34, z: 0}
+  scale: {x: 0.49717674, y: 0.49717674, z: 1}
   mGraphCurrentID2Generate: 4
   references:
-    version: 1
-    00000000:
+    version: 2
+    RefIds:
+    - rid: 0
       type: {class: DocumentTitleNode, ns: QFramework, asm: DocKit.Editor}
       data:
         nodeCustomName: 
@@ -66,7 +67,7 @@ MonoBehaviour:
         CNText: "\u5982\u4F55\u7F16\u8F91\u6587\u6863?"
         ENText: How do I edit a document?
         Size: 1
-    00000001:
+    - rid: 1
       type: {class: DocumentTitleNode, ns: QFramework, asm: DocKit.Editor}
       data:
         nodeCustomName: 
@@ -84,7 +85,7 @@ MonoBehaviour:
         CNText: "0. \u5982\u4F55\u521B\u5EFA\u6587\u672C\u8282\u70B9?"
         ENText: 0. How to create a text node?
         Size: 2
-    00000002:
+    - rid: 2
       type: {class: DocumentTextNode, ns: QFramework, asm: DocKit.Editor}
       data:
         nodeCustomName: 
@@ -101,7 +102,7 @@ MonoBehaviour:
         nodeLock: 0
         CNText: "* \u70B9\u51FB\u53F3\u952E\u521B\u5EFA\u6587\u672C\u8282\u70B9\uFF0C\u64CD\u4F5C\u5982\u4E0B"
         ENText: '* Right click to create text node as follows'
-    00000003:
+    - rid: 3
       type: {class: DocumentImageNode, ns: QFramework, asm: DocKit.Editor}
       data:
         nodeCustomName: 
@@ -118,7 +119,7 @@ MonoBehaviour:
         nodeLock: 0
         CNTexture: {fileID: 2800000, guid: 67835497f516b4fb5b63c4caa35b6798, type: 3}
         ENTexture: {fileID: 2800000, guid: c8939a4d006f040c6aeac39afd3ab503, type: 3}
-    00000004:
+    - rid: 4
       type: {class: DocumentTextNode, ns: QFramework, asm: DocKit.Editor}
       data:
         nodeCustomName: 
@@ -142,7 +143,7 @@ MonoBehaviour:
 
           * in the window that opens, select the
           DocKit/TextNode TextNode as follows'
-    00000005:
+    - rid: 5
       type: {class: DocumentImageNode, ns: QFramework, asm: DocKit.Editor}
       data:
         nodeCustomName: 
@@ -159,7 +160,7 @@ MonoBehaviour:
         nodeLock: 0
         CNTexture: {fileID: 2800000, guid: e6d84cac80f714cdd9c80c43c802c048, type: 3}
         ENTexture: {fileID: 2800000, guid: 5128aee66b5364da784e434082513db8, type: 3}
-    00000006:
+    - rid: 6
       type: {class: DocumentTextNode, ns: QFramework, asm: DocKit.Editor}
       data:
         nodeCustomName: 
@@ -176,7 +177,7 @@ MonoBehaviour:
         nodeLock: 0
         CNText: "* \u7ED3\u679C\u5982\u4E0B"
         ENText: '* The results are as follows'
-    00000007:
+    - rid: 7
       type: {class: DocumentImageNode, ns: QFramework, asm: DocKit.Editor}
       data:
         nodeCustomName: 
@@ -193,7 +194,7 @@ MonoBehaviour:
         nodeLock: 0
         CNTexture: {fileID: 2800000, guid: a9007cfe642684aa8865857924f6e533, type: 3}
         ENTexture: {fileID: 2800000, guid: bbdc976d36b29447eae11808de53894c, type: 3}
-    00000008:
+    - rid: 8
       type: {class: DocumentTextNode, ns: QFramework, asm: DocKit.Editor}
       data:
         nodeCustomName: 
@@ -211,7 +212,7 @@ MonoBehaviour:
         CNText: "* \u60A8\u53EF\u4EE5\u5728\u8F93\u5165\u680F\u4E2D\u968F\u610F\u8F93\u5165\u7F16\u8F91\u5185\u5BB9\uFF0C\u7B14\u8005\u5199\u7684\u5185\u5BB9\u5982\u4E0B"
         ENText: '* You can enter any editing content in the input field. The author
           has written below'
-    00000009:
+    - rid: 9
       type: {class: DocumentImageNode, ns: QFramework, asm: DocKit.Editor}
       data:
         nodeCustomName: 
@@ -228,7 +229,7 @@ MonoBehaviour:
         nodeLock: 0
         CNTexture: {fileID: 2800000, guid: 61acf7d504b8a4fada6bed15b13ae4b0, type: 3}
         ENTexture: {fileID: 2800000, guid: 3a69d3137caa947c7b1c2cd46038e378, type: 3}
-    0000000A:
+    - rid: 10
       type: {class: DocumentTextNode, ns: QFramework, asm: DocKit.Editor}
       data:
         nodeCustomName: 
@@ -245,7 +246,7 @@ MonoBehaviour:
         nodeLock: 0
         CNText: "* \u8FD9\u5C31\u662F DocKit \u7684\u6587\u672C\u8282\u70B9\u521B\u5EFA\u6D41\u7A0B\uFF0C\u5C31\u4ECB\u7ECD\u5230\u8FD9\u5566"
         ENText: '* This is the DocKit text node creation process, and that''s it'
-    0000000B:
+    - rid: 11
       type: {class: DocumentTitleNode, ns: QFramework, asm: DocKit.Editor}
       data:
         nodeCustomName: 
@@ -263,7 +264,7 @@ MonoBehaviour:
         CNText: "1. \u5982\u4F55\u521B\u5EFA\u56FE\u50CF\u8282\u70B9?"
         ENText: 1. How to create image nodes?
         Size: 2
-    0000000C:
+    - rid: 12
       type: {class: DocumentTextNode, ns: QFramework, asm: DocKit.Editor}
       data:
         nodeCustomName: 
@@ -281,7 +282,7 @@ MonoBehaviour:
         CNText: "* \u521B\u5EFA\u65B9\u5F0F\u548C\u6587\u672C\u8282\u70B9\u4E00\u6837\uFF0C\u8FD9\u91CC\u4E0D\u518D\u8D58\u8FF0\uFF0C\u521B\u5EFA\u4E4B\u540E\u5982\u4E0B"
         ENText: '* The method of creation is the same as that of text nodes, which
           will not be described here'
-    0000000D:
+    - rid: 13
       type: {class: DocumentImageNode, ns: QFramework, asm: DocKit.Editor}
       data:
         nodeCustomName: 
@@ -298,7 +299,7 @@ MonoBehaviour:
         nodeLock: 0
         CNTexture: {fileID: 2800000, guid: b759fe7321d5f4767932cfecf87cc512, type: 3}
         ENTexture: {fileID: 2800000, guid: 374e0b83fd923402fb9566d82cdef80b, type: 3}
-    0000000E:
+    - rid: 14
       type: {class: DocumentTextNode, ns: QFramework, asm: DocKit.Editor}
       data:
         nodeCustomName: 
@@ -316,7 +317,7 @@ MonoBehaviour:
         CNText: "* \u70B9\u51FB  ... \u6309\u94AE\u5373\u53EF\u4ECE\u684C\u9762\u5BFC\u5165\u56FE\u7247,\u6240\u4EE5\u5728\u5199\u6587\u6863\u65F6\u6700\u597D\u914D\u5408\u4E00\u4E2A\u622A\u56FE\u8F6F\u4EF6\u4F7F\u7528\uFF0C\u5BFC\u5165\u4E4B\u540E\u5982\u4E0B\u3002"
         ENText: '* click... The button can import images from the desktop, so it
           is best to use a screenshot software when writing documents.'
-    0000000F:
+    - rid: 15
       type: {class: DocumentImageNode, ns: QFramework, asm: DocKit.Editor}
       data:
         nodeCustomName: 
@@ -333,7 +334,7 @@ MonoBehaviour:
         nodeLock: 0
         CNTexture: {fileID: 2800000, guid: 40ba130f67af241ed9e018e4df7bf021, type: 3}
         ENTexture: {fileID: 2800000, guid: 5e97c3566f1c54fc0b831328126daa90, type: 3}
-    00000010:
+    - rid: 16
       type: {class: DocumentTextNode, ns: QFramework, asm: DocKit.Editor}
       data:
         nodeCustomName: 
@@ -352,7 +353,7 @@ MonoBehaviour:
         ENText: '* OK image node basic use is introduced, here remind, all nodes
           support Chinese and English switch, if you need to use this function, please
           experience.'
-    00000011:
+    - rid: 17
       type: {class: DocumentTextNode, ns: QFramework, asm: DocKit.Editor}
       data:
         nodeCustomName: 
@@ -369,7 +370,7 @@ MonoBehaviour:
         nodeLock: 0
         CNText: 
         ENText: Hello DocKit
-    00000012:
+    - rid: 18
       type: {class: DocumentTextNode, ns: QFramework, asm: DocKit.Editor}
       data:
         nodeCustomName: 
@@ -392,7 +393,7 @@ MonoBehaviour:
 
           Click on the
           "Clear Unused Images" button in the Inspector of the DocKit file.'
-    00000013:
+    - rid: 19
       type: {class: DocumentTextNode, ns: QFramework, asm: DocKit.Editor}
       data:
         nodeCustomName: 
