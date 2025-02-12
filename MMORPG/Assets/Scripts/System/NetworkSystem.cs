@@ -4,6 +4,8 @@ using Google.Protobuf;
 using QFramework;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 using MMORPG.Game;
@@ -25,6 +27,12 @@ namespace MMORPG.System
         public Task<T> ReceiveAsync<T>() where T : class, IMessage;
         public IUnRegister Receive<TMessage>(ReceivedEventHandler<TMessage> onReceived, bool inUnityThread = true) where TMessage : class, IMessage;
         public Task StartAsync();
+    }
+
+    public class NetConfig
+    {
+        public int port;
+        public string ip;
     }
 
     public class NetworkSystem : AbstractSystem, INetworkSystem
@@ -119,8 +127,12 @@ namespace MMORPG.System
                 box.ShowSpinner("连接服务器中......");
                 try
                 {
+                    string filePath = Path.Combine(Application.streamingAssetsPath, "NetConfig.txt");
+                    string fileContent  = File.ReadAllText(filePath);
+                    NetConfig netConfig = JsonUtility.FromJson<NetConfig>(fileContent);
+                    IPAddress ServerIpAddress = IPAddress.Parse(netConfig.ip);
                     socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                    await socket.ConnectAsync(NetConfig.ServerIpAddress, NetConfig.ServerPort);
+                    await socket.ConnectAsync(ServerIpAddress, netConfig.port);
                     box.CloseSpinner();
                     break;
                 }
